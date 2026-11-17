@@ -1,0 +1,11 @@
+backend/
+e2e/
+evidence/
+test-results/
+playwright-report/
+scripts/
+.gradle/
+**/build/
+.env*
+*.mv.db
+*.trace.db

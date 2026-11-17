@@ -10,3 +10,4 @@ frontend/dist/
 test-results/
 playwright-report/
 evidence/local/
+.vercel
