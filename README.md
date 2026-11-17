@@ -2,6 +2,9 @@
 
 Spring Boot·React로 구현한 회원 게시판. 실제 UI/API/DB를 연결하는 INT-01~05 검증용 프로젝트다.
 
+배포 주소: https://e2e-harness-board.vercel.app
+백엔드 상태: https://api-production-8a96697e.up.railway.app/api/health
+
 ## 실행
 
 Java 21, Gradle 9.2.1, Node 22.12 이상 필요. 패키지는 package-lock.json으로 고정한다.
