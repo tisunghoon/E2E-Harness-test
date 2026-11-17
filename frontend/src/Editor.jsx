@@ -17,8 +17,8 @@ export function Editor({ post, onCancel, onSaved }) {
     <button className="text-button" onClick={onCancel}>돌아가기</button>
     <h1>{post ? '이야기 수정하기' : '새로운 이야기'}</h1>
     <form onSubmit={submit}>
-      <label>제목<input value={title} onChange={e => setTitle(e.target.value)} maxLength={120} required placeholder="어떤 이야기를 나누고 싶나요?" /></label>
-      <label>본문<textarea value={body} onChange={e => setBody(e.target.value)} maxLength={10000} required rows={12} placeholder="생각을 편하게 적어보세요." /></label>
+      <label htmlFor="post-title">제목</label><input id="post-title" value={title} onChange={e => setTitle(e.target.value)} maxLength={120} required placeholder="어떤 이야기를 나누고 싶나요?" />
+      <label htmlFor="post-body">본문</label><textarea id="post-body" value={body} onChange={e => setBody(e.target.value)} maxLength={10000} required rows={12} placeholder="생각을 편하게 적어보세요." />
       <small>{body.length.toLocaleString()} / 10,000</small>
       {error && <p role="alert" className="error">{error}</p>}
       <div className="actions"><button type="button" className="secondary" onClick={onCancel}>취소</button><button className="primary" disabled={busy}>{busy ? '저장 중…' : post ? '수정 저장' : '게시하기'}</button></div>
