@@ -1,0 +1,10 @@
+{
+  "mode": "outage",
+  "origin": "https://e2e-harness-board.vercel.app",
+  "at": "2026-11-17T13:35:20.904Z",
+  "checks": [
+    "API unavailable; UI displays connection error"
+  ],
+  "health": 404,
+  "status": "passed"
+}

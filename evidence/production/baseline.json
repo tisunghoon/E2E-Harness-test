@@ -1,0 +1,12 @@
+{
+  "mode": "baseline",
+  "origin": "https://e2e-harness-board.vercel.app",
+  "at": "2026-11-17T13:29:27.615Z",
+  "checks": [
+    "HTTPS health, login, HttpOnly/Secure session, CSRF write flow",
+    "Synthetic account, create/read/update, author linkage",
+    "Logout invalidates current session"
+  ],
+  "health": 200,
+  "status": "passed"
+}
