@@ -1,0 +1,9 @@
+.git
+node_modules
+**/build
+.gradle
+frontend
+e2e
+evidence
+test-results
+.env*
