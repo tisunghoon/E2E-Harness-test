@@ -1,0 +1,14 @@
+[WebServer] (node:71825) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:71843) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/integration.spec.js:8:1 › INT-01 회원 생성부터 공개 조회·수정·삭제까지 연결된다 (3.4s)
+  ✓  2 e2e/integration.spec.js:26:1 › INT-02 타인 수정·삭제는 거절하고 각자 자신의 글만 수정한다 (3.8s)
+  ✓  3 e2e/integration.spec.js:42:1 › INT-03 로그아웃한 자격과 비회원 쓰기는 거절하고 재로그인은 허용한다 (3.2s)
+  ✓  4 e2e/integration.spec.js:62:1 › INT-04 서버 재기동 후 계정·수정본·삭제·작성자 연결을 유지한다 (6.0s)
+  ✓  5 e2e/integration.spec.js:81:1 › INT-05 중복 가입·잘못된 글 요청은 상태를 보존하고 이후 정상 처리가 된다 (3.2s)
+
+  5 passed (20.6s)

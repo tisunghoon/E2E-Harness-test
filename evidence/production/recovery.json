@@ -1,0 +1,12 @@
+{
+  "mode": "recovery",
+  "origin": "https://e2e-harness-board.vercel.app",
+  "at": "2026-11-17T13:35:57.067Z",
+  "checks": [
+    "HTTPS health, login, HttpOnly/Secure session, CSRF write flow",
+    "Same member and post IDs, persisted edit/author, successful write after recovery",
+    "Logout invalidates current session"
+  ],
+  "health": 200,
+  "status": "passed"
+}

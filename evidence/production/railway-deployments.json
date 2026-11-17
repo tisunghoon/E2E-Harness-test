@@ -1,0 +1,20 @@
+[
+  {
+    "id": "09603d4d-e42c-4d51-a027-bc47794161ac",
+    "status": "SUCCESS",
+    "createdAt": "2026-11-17T13:35:35.657Z",
+    "imageDigest": "sha256:c9904a76fe5d636247847ae70ec3defdc9240e2581026bc7d3c607b93c428df7",
+    "volumeMounts": [
+      "/data"
+    ]
+  },
+  {
+    "id": "6da63111-b40b-4266-a97d-7c5a718afb2d",
+    "status": "REMOVED",
+    "createdAt": "2026-11-17T13:24:16.551Z",
+    "imageDigest": "sha256:c9904a76fe5d636247847ae70ec3defdc9240e2581026bc7d3c607b93c428df7",
+    "volumeMounts": [
+      "/data"
+    ]
+  }
+]

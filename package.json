@@ -1,0 +1,19 @@
+{
+  "name": "e2e-harness-board",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config frontend/vite.config.js",
+    "build": "vite build --config frontend/vite.config.js",
+    "test": "playwright test",
+    "test:list": "playwright test --list"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "vite": "7.3.8"
+  }
+}

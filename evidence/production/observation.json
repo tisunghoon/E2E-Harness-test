@@ -1,0 +1,128 @@
+{
+  "origin": "https://e2e-harness-board.vercel.app",
+  "elapsedMs": 300831,
+  "passed": true,
+  "samples": [
+    {
+      "at": "2026-11-17T13:30:00.284Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:30:30.285Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:31:00.284Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:31:30.286Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:32:00.284Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:32:30.286Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:33:00.285Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:33:30.285Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:34:00.285Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:34:30.285Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-11-17T13:35:00.285Z",
+      "/api/health": {
+        "status": 200,
+        "valid": true
+      },
+      "/api/posts": {
+        "status": 200,
+        "valid": true
+      }
+    }
+  ]
+}
