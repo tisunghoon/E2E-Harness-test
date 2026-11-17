@@ -1,0 +1,12 @@
+.gradle/
+**/build/
+node_modules/
+frontend/dist/
+.idea/
+.env*
+!.env.example
+*.mv.db
+*.trace.db
+test-results/
+playwright-report/
+evidence/local/
