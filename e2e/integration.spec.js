@@ -10,7 +10,7 @@ test('INT-01 회원 생성부터 공개 조회·수정·삭제까지 연결된�
   const me = await (await page.request.get('/api/auth/me')).json();
   const p = await create(page, P1);
   expect(p.authorId).toBe(me.id);
-  const guest = await browser.newPage();
+  const guest = await browser.newPage({ baseURL: 'http://127.0.0.1:5173' });
   await guest.goto(`/?post=${p.id}`);
   await expect(guest.getByTestId('post-body')).toHaveText(P1.body);
   await edit(page, { title: '수정한 첫 번째 글', body: '수정된 본문입니다.' });
@@ -25,7 +25,7 @@ test('INT-01 회원 생성부터 공개 조회·수정·삭제까지 연결된�
 
 test('INT-02 타인 수정·삭제는 거절하고 각자 자신의 글만 수정한다', async ({ page, browser }) => {
   await signup(page, A); await login(page, A); const p1 = await create(page, P1);
-  const b = await browser.newPage();
+  const b = await browser.newPage({ baseURL: 'http://127.0.0.1:5173' });
   await signup(b, B); await login(b, B); const p2 = await create(b, P2);
   const before = snapshot();
   expect((await api(b.request, 'PUT', `/posts/${p1.id}`, { title: '사칭', body: '사칭', authorId: p1.authorId })).status()).toBe(403);
@@ -62,7 +62,7 @@ test('INT-03 로그아웃한 자격과 비회원 쓰기는 거절하고 재로�
 test('INT-04 서버 재기동 후 계정·수정본·삭제·작성자 연결을 유지한다', async ({ page, browser }) => {
   await signup(page, A); await login(page, A); const p1 = await create(page, P1);
   const p3 = await create(page, P3); await remove(page);
-  const b = await browser.newPage(); await signup(b, B); await login(b, B);
+  const b = await browser.newPage({ baseURL: 'http://127.0.0.1:5173' }); await signup(b, B); await login(b, B);
   const p2 = await create(b, P2); await edit(b, { title: '수정한 두 번째 글', body: '수정본 유지' });
   const before = snapshot();
   await stop(); await start(false);

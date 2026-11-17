@@ -6,6 +6,10 @@ import { expect } from '@playwright/test';
 let processHandle, dbUrl, log = '', dir;
 export async function start(fresh = true) {
   if (fresh) { dir = mkdtempSync(join(tmpdir(), 'board-int-')); dbUrl = `jdbc:h2:file:${dir}/board;AUTO_SERVER=TRUE`; }
+  try {
+    await fetch('http://127.0.0.1:18080/api/health', { signal: AbortSignal.timeout(1000) });
+    throw new Error('Port 18080 already serves an app; refusing to touch it.');
+  } catch (error) { if (error.message.startsWith('Port ')) throw error; }
   log = '';
   processHandle = spawn('java', ['-jar', 'backend/build/libs/board.jar'], {
     env: { ...process.env, PORT: '18080', APP_DB_URL: dbUrl }, stdio: ['ignore', 'pipe', 'pipe'],
@@ -14,7 +18,10 @@ export async function start(fresh = true) {
   processHandle.stderr.on('data', chunk => { log += chunk; });
   for (let i = 0; i < 120; i++) {
     if (processHandle.exitCode !== null) throw new Error(`Server exited: ${log}`);
-    try { await fetch('http://127.0.0.1:18080/api/posts'); return; } catch {}
+    try {
+      const ready = await fetch('http://127.0.0.1:18080/api/health', { signal: AbortSignal.timeout(1000) });
+      if (ready.ok && log.includes('Started BoardApplication')) return;
+    } catch {}
     await new Promise(r => setTimeout(r, 200));
   }
   throw new Error(`Server startup timeout: ${log}`);
@@ -29,9 +36,11 @@ export async function stop() {
   });
 }
 export function snapshot() {
-  return execFileSync('java', ['-cp', 'backend/build/tools/h2.jar', 'org.h2.tools.Shell',
+  const output = execFileSync('java', ['-cp', 'backend/build/tools/h2.jar', 'org.h2.tools.Shell',
     '-url', dbUrl, '-user', 'sa', '-password', '', '-sql',
     'SELECT id,email FROM members ORDER BY email; SELECT id,author_id,title,body FROM posts ORDER BY id;'], { encoding: 'utf8' });
+  if (output.includes('Error:')) throw new Error(output);
+  return output.replace(/\(\d+ rows?, \d+ ms\)/g, '').trim();
 }
 export async function evidence(info) {
   mkdirSync('evidence/local', { recursive: true });
@@ -67,6 +76,7 @@ export async function login(page, user) {
   await expect(page.getByTestId('current-user')).toHaveText(user.email);
 }
 export async function create(page, post) {
+  await page.goto('/');
   await page.getByRole('button', { name: '글 쓰기', exact: true }).click();
   await page.getByLabel('제목', { exact: true }).fill(post.title);
   await page.getByLabel('본문', { exact: true }).fill(post.body);
